@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Image Surfer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="label_search">Search</string>
+    <string name="title_activity_image_viewer">Image Viewer Activity</string>
+    <string name="imageDesc">google image</string>
+    <string name="title_activity_advance_search">Advance Search Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="advanced_settings">Advance Search</string>
+    <string name="btn_save">Save</string>
+    <string name="image_type_hint">"face "</string>
+    <string name="site_hint">yahoo.com</string>
+    
+
+</resources>
