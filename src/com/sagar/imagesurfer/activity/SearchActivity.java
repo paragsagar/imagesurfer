@@ -8,6 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -34,10 +36,8 @@ import com.sagar.imagesurfer.model.SearchQuery;
 public class SearchActivity extends FragmentActivity implements AdvanceSearchFragmentListener {
 
 	public static final String ADV_SEARCH_FRAGMENT = "ADV_SEARCH_FRAGMENT";
-	SearchView searchView;
-	public static String googleImageAPIUrl = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=dog&rsz=8";
-
-	ArrayList<Image> imageResults ;
+	SearchView searchView; //Search icon on Action Bar
+	ArrayList<Image> imageResults ; //List of images to be displayed on Grid
 	GridView gridView ;
 	ImageResultAdapter imageAdapter;
 	public SearchQuery search;
@@ -52,8 +52,12 @@ public class SearchActivity extends FragmentActivity implements AdvanceSearchFra
 		gridView.setAdapter(imageAdapter);
 		search = new SearchQuery();
 		setGridListeners();
+		getActionBar().setBackgroundDrawable(new ColorDrawable(Color.BLUE));
 	}
 	
+	/**
+	 * Setting Grid listeners for 
+	 */
 	private void setGridListeners() {
 		
 		//One Click of a Photo
@@ -81,13 +85,16 @@ public class SearchActivity extends FragmentActivity implements AdvanceSearchFra
 		
 	}
 
-
+/**
+ * Method to load Async Data 
+ * @param page
+ */
 	private void loadAsyncData(final int page) {
 		// perform your query here
 		AsyncHttpClient client = new AsyncHttpClient();
 
 //		googleImageAPIUrl = "https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q="+search.queryString+"&rsz=8&start="+page;
-//		Toast.makeText(getApplicationContext(), "Querying ! "+ search.toString(), Toast.LENGTH_LONG).show();
+
 		Log.d("DEBUG","Query String = "+search.toString());
 		
 		client.get(search.toString(), new JsonHttpResponseHandler(){
@@ -115,12 +122,7 @@ public class SearchActivity extends FragmentActivity implements AdvanceSearchFra
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(),"Could not fetch data from internet! "+ errorResponse, Toast.LENGTH_SHORT).show();
 			}
-			
-//			@Override
-//			public void onFailure(int statusCode, Header[] headers,Throwable throwable, JSONObject json) {
-//				
-//			
-//			}
+
 		});
 	}
 	

@@ -5,78 +5,105 @@
     android:layout_height="350dp"
     android:background="#EE00DDEC" >
 
-    <EditText
-        android:id="@+id/etImageSize"
-        android:layout_width="100dp"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="14dp"
-        android:layout_toRightOf="@+id/tvImageSize"
-        android:ems="10"
-        android:hint="Medium" />
+        android:background="#00AAAA"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:height="35dp"
+            android:text="@string/advanced_settings"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spnImageSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvImageSize"
+        android:layout_alignLeft="@+id/etSiteFilter"
+        android:layout_below="@+id/linearLayout1"
+        android:entries="@array/image_size" />
+
+    <Spinner
+        android:id="@+id/spnColorFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvColor"
+        android:layout_alignLeft="@+id/spnImageSize"
+        android:layout_below="@+id/spnImageSize"
+        android:entries="@array/image_color" />
+
+    <Spinner
+        android:id="@+id/spnImageType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvType"
+        android:layout_alignLeft="@+id/spnColorFilter"
+        android:layout_below="@+id/spnColorFilter"
+        android:entries="@array/image_type" />
 
     <EditText
-        android:id="@+id/etColor"
-        android:layout_width="100dp"
+        android:id="@+id/etSiteFilter"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etImageSize"
+        android:layout_alignBaseline="@+id/tvSite"
+        android:layout_alignBottom="@+id/tvSite"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/etImageSize"
-        android:layout_marginTop="18dp"
         android:ems="10"
-        android:hint="brown" />
+        android:hint="@string/site_hint" />
+
+    <TextView
+        android:id="@+id/tvImageSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tvType"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="23dp"
+        android:gravity="center"
+        android:hint="any"
+        android:text="Image Size" />
 
     <TextView
         android:id="@+id/tvColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/etColor"
-        android:layout_alignBottom="@+id/etColor"
-        android:layout_toLeftOf="@+id/etImageSize"
+        android:layout_alignRight="@+id/tvImageSize"
+        android:layout_below="@+id/tvImageSize"
+        android:layout_marginTop="17dp"
         android:text="Color Filter" />
 
     <TextView
         android:id="@+id/tvType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvColor"
-        android:layout_below="@+id/etColor"
-        android:layout_marginTop="19dp"
+        android:layout_below="@+id/tvColor"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="17dp"
+        android:layout_toLeftOf="@+id/spnImageType"
         android:text="Image Type" />
-
-    <EditText
-        android:id="@+id/etImageType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tvType"
-        android:layout_alignBottom="@+id/tvType"
-        android:layout_alignLeft="@+id/etColor"
-        android:layout_alignRight="@+id/etColor"
-        android:ems="10"
-        android:hint="@string/image_type_hint" >
-
-        <requestFocus />
-    </EditText>
 
     <TextView
         android:id="@+id/tvSite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/tvColor"
+        android:layout_alignRight="@+id/tvType"
         android:layout_centerVertical="true"
         android:hint="any"
         android:text="Site Filter" />
-
-    <EditText
-        android:id="@+id/etSiteFilter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tvSite"
-        android:layout_alignLeft="@+id/etImageType"
-        android:layout_alignRight="@+id/etImageType"
-        android:ems="10"
-        android:hint="@string/site_hint" />
 
     <Button
         android:id="@+id/btnSave"
@@ -84,18 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/etSiteFilter"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="28dp"
         android:text="@string/btn_save" />
-
-    <TextView
-        android:id="@+id/tvImageSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/etColor"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="22dp"
-        android:gravity="center"
-        android:hint="any"
-        android:text="Image Size" />
 
 </RelativeLayout>
